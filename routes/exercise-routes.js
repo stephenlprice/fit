@@ -53,13 +53,32 @@ module.exports = (app) => {
     });
   });
 
-  app.put("/api/workouts", (req, res) => {
-    console.log('PUT: /api/workouts', req.body);
+  app.put("/api/workouts/:id", (req, res) => {
+    console.log('add exercise', req.body);
+    console.log('to workout id: ', req.params.id);
+
+    db.Workout.findOneAndUpdate(
+      {_id: req.params.id}, 
+      {$push: { exercises: req.body }},
+      {useFindAndModify: false}
+    )
+    .then(dbExercise => {
+      console.log('New Exercise: ', dbExercise);
+      res.json(dbExercise);
+    })
+    .catch(err => {
+      console.error(err);
+    });
   });
 
   app.post("/api/workouts", (req, res) => {
-    console.log('POST: /api/workouts', req.body);
-    db.Workout.insert(req.body);
-
+    db.Workout.create({})
+    .then(dbWorkout => {
+      console.log('new dbWorkout:', dbWorkout);
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      console.error(err);
+    });
   });
 };
