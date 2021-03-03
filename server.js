@@ -25,7 +25,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitdb",
 { 
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 // Routes
