@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+// Subdocument for cardio exercises
 const cardioSchema = new Schema({
   type: {
     type: String,
@@ -21,6 +22,7 @@ const cardioSchema = new Schema({
   }
 });
 
+// Subdocument for resistance exercises
 const resistanceSchema = new Schema({
   type: {
     type: String,
@@ -48,6 +50,7 @@ const resistanceSchema = new Schema({
   }
 });
 
+// Document for workout sessions
 const WorkoutSchema = new Schema({
   day: {
     type: Date,
