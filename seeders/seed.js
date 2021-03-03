@@ -1,8 +1,10 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/fitdb", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitdb", {
   useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
   useFindAndModify: false
 });
 

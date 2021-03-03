@@ -138,7 +138,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: 'Exercises Performed',
+          label: 'Durations',
           backgroundColor: colors,
           data: durations,
         },
@@ -147,7 +147,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: 'Exercises Performed',
+        text: 'Durations',
       },
     },
   });
@@ -158,7 +158,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: 'Exercises Performed',
+          label: 'Pounds',
           backgroundColor: colors,
           data: pounds,
         },
@@ -167,7 +167,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: 'Exercises Performed',
+        text: 'Pounds',
       },
     },
   });
