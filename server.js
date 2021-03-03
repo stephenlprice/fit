@@ -21,7 +21,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Mongoose used to connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitdb", 
+{ 
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
 
 // Routes
 require('./routes/html-routes.js')(app);
